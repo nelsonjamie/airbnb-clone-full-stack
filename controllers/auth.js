@@ -8,5 +8,43 @@ router.get('/', (req, res) => {
   console.log('Hello from Auth')
 })
 
+//Routes
+
+//GET / login
+
+router.get('/login', (req, res) => {
+  res.send('Hello from login')
+  console.log('redirect to login')
+})
+
+// GET / signup
+router.get('/signup', (req, res) => {
+  res.send('Hello from signup')
+  console.log('redirect to signup')
+})
+
+// POST / login
+router.post('/login', (req, res) => {
+  console.log(req.body)
+  res.send('logged in')
+})
+
+// POST / signup
+router.post('/signup', (req, res) => {
+  console.log(req.body)
+  res.redirect('/profile')
+})
+
+// GET / logout
+router.get('/logout', (req, res) => {
+  req.logout()
+  req.session.destroy(err => {
+    if (err) {
+      next(err)
+    }
+    res.clearCookie('connect.sid')
+  })
+})
+
 // Export
 module.exports = router
