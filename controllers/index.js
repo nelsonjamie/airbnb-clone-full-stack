@@ -4,7 +4,7 @@ const router = express.Router()
 
 // Create here a controller
 router.get('/', (req, res) => {
-  res.render('index')
+  res.redirect('/houses')
   console.log('Hello from Index')
 })
 // Export
