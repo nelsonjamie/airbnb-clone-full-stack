@@ -1,0 +1,41 @@
+#airbnb-logo {
+  height: 30px;
+}
+
+#avatar-img {
+  height: 20px;
+}
+
+.result-card {
+  width: 200px;
+}
+
+.result-card img {
+  width: 100%;
+}
+
+.bhi {
+  background-image: url(https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg);
+  background-color: #black;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+#logincard {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+#signupcard {
+  width: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
