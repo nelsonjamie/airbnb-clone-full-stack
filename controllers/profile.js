@@ -9,11 +9,7 @@ router.get('/', (req, res) => {
 })
 
 //Routes
-// GET /
-router.get('/', (req, res) => {
-  res.send('Profile')
-  console.log('profile displayed')
-})
+
 // PATCH /
 router.patch('/', (req, res) => {
   res.send('Profile updated')
