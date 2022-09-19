@@ -2,30 +2,24 @@
 const express = require('express')
 const router = express.Router()
 
-// Create here a controller
-router.get('/', (req, res) => {
-  res.render('/houses')
-  console.log('Hello from Houses')
-})
-
 //Routes
 // GET /
-router.get('/houses', (req, res) => {
-  res.send('Hello from Houses')
+router.get('/', (req, res) => {
+  res.render('houses/list')
   console.log('get houses complete')
 })
 // GET /create
 router.get('/create', (req, res) => {
-  res.send('Create your house')
+  res.render('houses/create')
 })
 // GET /:id
 router.get('/:id', (req, res) => {
-  res.send('it worked')
+  res.render('houses/one')
   console.log('View this House')
 })
 // GET /:id/edit
 router.get('/:id/edit', (req, res) => {
-  res.send('Edit your house')
+  res.render('houses/edit')
   console.log('ready to edit')
 })
 // POST /
