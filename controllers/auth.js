@@ -13,13 +13,13 @@ router.get('/', (req, res) => {
 //GET / login
 
 router.get('/login', (req, res) => {
-  res.send('Hello from login')
+  res.render('login')
   console.log('redirect to login')
 })
 
 // GET / signup
 router.get('/signup', (req, res) => {
-  res.send('Hello from signup')
+  res.render('signup')
   console.log('redirect to signup')
 })
 
