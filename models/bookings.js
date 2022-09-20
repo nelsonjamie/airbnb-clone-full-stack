@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-let bookingsModel = mongoose.model('bookings', {
-  author: {
+let Bookings = mongoose.model('bookings', {
+  user: {
     type: ObjectId,
     ref: 'users',
     required: true
@@ -21,3 +22,5 @@ let bookingsModel = mongoose.model('bookings', {
     required: true
   }
 })
+
+module.exports = Bookings
