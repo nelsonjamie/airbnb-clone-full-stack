@@ -9,7 +9,7 @@
               src="/images/logo-airbnb.png"
               alt="Airbnb logo"
           /></a>
-          <form>
+          <form action="/auth/login" method="POST">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
@@ -19,6 +19,7 @@
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+								name="email"
               />
             </div>
             <div class="mb-3">
@@ -29,6 +30,7 @@
                 type="password"
                 class="form-control"
                 id="exampleInputPassword1"
+								name="password"
               />
             </div>
 
