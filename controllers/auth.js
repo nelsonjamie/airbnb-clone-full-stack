@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
         throw err
       } else {
         console.log(req.body)
-        res.redirect('/profile')
+        res.redirect('/houses')
       }
     })
   }
