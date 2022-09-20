@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-let usersModel = mongoose.model('users', {
+let Users = mongoose.model('users', {
   avatar: String,
   email: {
     type: String,
@@ -15,3 +16,5 @@ let usersModel = mongoose.model('users', {
     require: true
   }
 })
+
+module.exports = Users
