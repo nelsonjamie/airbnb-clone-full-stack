@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-let reviewsModel = mongoose.model('reviews', {
+let Reviews = mongoose.model('reviews', {
   author: {
     type: ObjectId,
     ref: 'users',
@@ -21,3 +22,5 @@ let reviewsModel = mongoose.model('reviews', {
     required: true
   }
 })
+
+module.exports = Reviews
