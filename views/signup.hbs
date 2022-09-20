@@ -1,26 +1,27 @@
 <!--START FORM-->
-
+<div class="bhi">
     <div class="card min-vw-25" id="signupcard">
       <div class="card-body">
-        <a href="#" class="d-flex justify-content-center"
+        <a href="login" class="d-flex justify-content-center"
           ><img
             class="text-center"
             id="airbnb-logo"
-            src="images/logo-airbnb.png"
+            src="/images/logo-airbnb.png"
             alt="Airbnb log"
         /></a>
-        <form>
+        <form action="/auth/signup" method="POST">
           <div class="mb-3 text-left">
             <label for="full-name" class="form-label">Your Full Name</label>
-            <input type="text" class="form-control" id="full-name" />
+            <input type="text" class="form-control" id="full-name" name="name"/>
           </div>
           <div class="mb-3 text-left">
             <label for="image-input" class="form-label">Profile Picture</label>
             <input
               type="text"
               class="form-control"
-              id="full-name"
+              id="profile-picture"
               placeholder="https://"
+							name="avatar"
             />
           </div>
           <div class="mb-3 text-left">
@@ -32,6 +33,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+							name="email"
             />
           </div>
           <div class="mb-3 text-left">
@@ -42,15 +44,16 @@
               type="password"
               class="form-control"
               id="exampleInputPassword1"
+							name="password"
             />
           </div>
 
           <button class="btn btn-success text-left">
             Signup
           </button>
-          <p>Already have an account? <a href="#">Login</a></p>
+          <p>Already have an account? <a href="login">Login</a></p>
         </form>
       </div>
     </div>
-
+</div>
     <!--END FORM-->
