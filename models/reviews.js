@@ -12,7 +12,7 @@ let reviewsModel = mongoose.model('reviews', {
     required: true
   },
   description: {
-    type: Text,
+    type: String,
     required: true
   },
   house: {

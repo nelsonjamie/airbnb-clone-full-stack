@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
 let usersModel = mongoose.model('users', {
-  avatar: Text,
+  avatar: String,
   email: {
-    type: Text,
+    type: String,
     require: true
   },
   name: {
-    type: Text,
+    type: String,
     require: true
   },
   password: {
-    type: Text,
+    type: String,
     require: true
   }
 })

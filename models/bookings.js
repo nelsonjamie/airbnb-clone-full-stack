@@ -12,7 +12,7 @@ let bookingsModel = mongoose.model('bookings', {
     required: true
   },
   description: {
-    type: Text,
+    type: String,
     required: true
   },
   house: {

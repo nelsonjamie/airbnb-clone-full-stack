@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 let housesModel = mongoose.model('houses', {
   description: {
-    type: Text,
+    type: String,
     required: true
   },
   host: {
@@ -11,7 +11,7 @@ let housesModel = mongoose.model('houses', {
     required: true
   },
   location: {
-    type: Text,
+    type: String,
     required: true
   },
   photos: [
@@ -28,7 +28,7 @@ let housesModel = mongoose.model('houses', {
     require: true
   },
   title: {
-    type: Text,
+    type: String,
     require: true
   }
 })
