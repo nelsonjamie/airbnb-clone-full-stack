@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 let housesModel = mongoose.model('houses', {
   description: {
     type: Text,
@@ -12,7 +14,11 @@ let housesModel = mongoose.model('houses', {
     type: Text,
     required: true
   },
-  photos: [],
+  photos: [
+    {
+      location: String
+    }
+  ],
   price: {
     type: Number,
     require: true
