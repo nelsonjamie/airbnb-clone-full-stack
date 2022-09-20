@@ -41,11 +41,6 @@ mongoose.connect(
   }
 )
 
-const Users = require('./models/users')
-const Bookings = require('./models/bookings')
-const Houses = require('./models/houses')
-const Reviews = require('./models/results')
-
 // Security
 require('./express-sessions')(app)
 
