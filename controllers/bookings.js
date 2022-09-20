@@ -4,8 +4,12 @@ const router = express.Router()
 
 // Create here a controller
 router.post('/', (req, res) => {
-  res.send('your booking has been sent')
-  console.log('req.body')
+  if (req.isAuthenticated()) {
+    res.send('your booking has been sent')
+    console.log('req.body')
+  } else {
+    res.redirect('/login')
+  }
 })
 // Export
 module.exports = router
