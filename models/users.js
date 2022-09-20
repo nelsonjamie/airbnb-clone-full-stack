@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 let usersModel = mongoose.model('users', {
   avatar: Text,
   email: {
