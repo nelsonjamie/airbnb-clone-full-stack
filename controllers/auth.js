@@ -27,22 +27,28 @@ router.post('/login', (req, res) => {
 })
 
 // POST / signup
-router.post('/signup', async (req, res) => {
-  let foundUser = await Users.findOne({
-    email: req.body.email
-  })
-  if (foundUser) {
-    console.log('Err')
-  } else {
-    let saveUser = await Users.create(req.body)
-    req.login(saveUser, err => {
-      if (err) {
-        throw err
-      } else {
-        console.log(req.body)
-        res.redirect('/houses')
-      }
+router.post('/signup', async (req, res, next) => {
+  try {
+    let foundUser = await Users.findOne({
+      email: req.body.email
     })
+    if (foundUser) {
+      console.log('User with this email already exists')
+      throw new Error('User with this email already exists')
+    } else {
+      let saveUser = await Users.create(req.body)
+      //check saveUser exists in the DB
+      req.login(saveUser, err => {
+        if (err) {
+          throw err
+        } else {
+          console.log(req.body)
+          res.redirect('/houses')
+        }
+      })
+    }
+  } catch (err) {
+    next(err)
   }
 })
 
