@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 
+const Users = require('../models/users')
 // Create here a controller
 
 //Routes
@@ -26,9 +27,23 @@ router.post('/login', (req, res) => {
 })
 
 // POST / signup
-router.post('/signup', (req, res) => {
-  console.log(req.body)
-  res.redirect('/profile')
+router.post('/signup', async (req, res) => {
+  let foundUser = await Users.findOne({
+    email: req.body.email
+  })
+  if (foundUser) {
+    console.log('Err')
+  } else {
+    let saveUser = await Users.create(req.body)
+    req.login(saveUser, err => {
+      if (err) {
+        throw err
+      } else {
+        console.log(req.body)
+        res.redirect('/profile')
+      }
+    })
+  }
 })
 
 // GET / logout
