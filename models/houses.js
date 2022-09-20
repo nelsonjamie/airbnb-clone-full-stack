@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-let housesModel = mongoose.model('houses', {
+let Houses = mongoose.model('houses', {
   description: {
     type: String,
     required: true
@@ -32,3 +33,5 @@ let housesModel = mongoose.model('houses', {
     require: true
   }
 })
+
+module.exports = Houses
