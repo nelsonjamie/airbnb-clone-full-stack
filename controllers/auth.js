@@ -21,10 +21,35 @@ router.get('/signup', (req, res) => {
 })
 
 // POST / login
-router.post('/login', (req, res) => {
-  console.log(req.body)
-  res.send('logged in')
+router.post('/login', async (req, res, next) => {
+  try {
+    let foundUser = await Users.findOne({
+      email: req.body.email,
+      password: req.body.password
+    })
+    if (foundUser) {
+      req.login(foundUser, err => {
+        if (err) {
+          console.log('Invalid credentials')
+          throw new Error('Invalid credentials')
+        } else {
+          console.log('Successful login')
+          res.redirect('/houses')
+        }
+      })
+    } else {
+      console.log('The user does not exist')
+      throw new Error('Invalid credentials')
+    }
+  } catch (err) {
+    next(err)
+  }
 })
+
+// {
+//   console.log(req.body)
+//   res.send('logged in')
+// })
 
 // POST / signup
 router.post('/signup', async (req, res, next) => {
@@ -37,7 +62,7 @@ router.post('/signup', async (req, res, next) => {
       throw new Error('User with this email already exists')
     } else {
       let saveUser = await Users.create(req.body)
-      //check saveUser exists in the DB
+      //Add later: check saveUser exists in the DB
       req.login(saveUser, err => {
         if (err) {
           throw err
