@@ -4,8 +4,11 @@ const router = express.Router()
 
 // Create here a controller
 router.get('/', (req, res) => {
-  res.render('/reviews')
-  console.log('Hello from Reviews')
+  if (req.isAuthenticated()) {
+    res.render('/reviews')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
 //Routes

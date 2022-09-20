@@ -10,7 +10,11 @@ router.get('/', (req, res) => {
 })
 // GET /create
 router.get('/create', (req, res) => {
-  res.render('houses/create')
+  if (req.isAuthenticated()) {
+    res.render('houses/create')
+  } else {
+    res.redirect('../auth/login')
+  }
 })
 // GET /:id
 router.get('/:id', (req, res) => {
@@ -19,24 +23,36 @@ router.get('/:id', (req, res) => {
 })
 // GET /:id/edit
 router.get('/:id/edit', (req, res) => {
-  res.render('houses/edit')
-  console.log('ready to edit')
+  if (req.isAuthenticated()) {
+    res.render('houses/edit')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 // POST /
 router.post('/', (req, res) => {
-  console.log(req.body)
-  res.send('created')
+  if (req.isAuthenticated()) {
+    res.render('houses/:id')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 // PATCH /:id
 router.patch('/:id', (req, res) => {
-  res.send('change made')
-  console.log('Changed this House')
+  if (req.isAuthenticated()) {
+    res.render('houses/:id')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 // DELETE /:id
 
 router.delete('/:id', (req, res) => {
-  res.send('goodbye')
-  console.log('deleted')
+  if (req.isAuthenticated()) {
+    res.render('/profile')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
 // Export

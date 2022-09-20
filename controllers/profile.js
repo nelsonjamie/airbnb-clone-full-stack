@@ -4,8 +4,11 @@ const router = express.Router()
 
 // Create here a controller
 router.get('/', (req, res) => {
-  res.render('profile')
-  console.log('Hello from Profile')
+  if (req.isAuthenticated()) {
+    res.render('profile')
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
 //Routes
