@@ -43,6 +43,7 @@ router.get('/logout', (req, res) => {
       next(err)
     }
     res.clearCookie('connect.sid')
+    res.redirect('login')
   })
 })
 
