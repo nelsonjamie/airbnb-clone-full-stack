@@ -1,11 +1,11 @@
 <nav class="mb-3">{{> navbar}}</nav>
 <!-- VERSION 1 BLANK FORM -->
 	<div class="container">
-		<form action="/houses">
+		<form action="/houses" method="post">
 			<p class="h1">List a House</p>
 			<div class="mb-3">
 				<label for="title" class="form-label">Short Title</label>
-				<input class="form-control" name="title" />
+				<input type="string" class="form-control" name="title" />
 			</div>
 			<div class="mb-3">
 				<label for="description" class="form-label">Description</label>
@@ -13,7 +13,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="title" class="form-label">Number of Rooms</label>
-				<input class="form-control" name="number-of-rooms" />
+				<input type="number" class="form-control" name="rooms" />
 			</div>
 			<div class="mb-3">
 				<label for="title" class="form-label">Location</label>
@@ -21,9 +21,9 @@
 					class="form-select"
 					aria-label="Default select example"
 					name="location"
-				>
+				><option value="0">Select a location</option>
 					<option value="1">Koh Phangan</option>
-					<option value="2" selected>Koh Samui</option>
+					<option value="2" >Koh Samui</option>
 					<option value="3">Bali</option>
 				</select>
 			</div>
@@ -34,7 +34,7 @@
 						<i class="fa-sharp fa-solid fa-dollar-sign"></i>
 					</div>
 					<input
-						type="text"
+						type="number"
 						class="form-control"
 						id="autoSizingInputGroup"
 						name="price"
@@ -45,12 +45,14 @@
 			<div class="mb-3">
 				<label for="formFile" class="form-label">Add Photos (up to 9)</label>
 				<input
+					type="text"
 					class="form-control"
 					for="img-link"
 					name="photos"
 					placeholder="https://..."
 				/>
 				<input
+					type="text"
 					class="form-control"
 					for="img-link"
 					name="photos"
