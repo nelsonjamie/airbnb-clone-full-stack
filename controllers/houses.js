@@ -6,11 +6,19 @@ const Houses = require('../models/houses')
 
 //Routes
 // GET /
-router.get('/', async (req, res) => {
-  let houses = await Houses.find()
-  console.log(houses)
-  res.render('houses/list', { houses })
+router.get('/', async (req, res, next) => {
+  try {
+    let houses = await Houses.find({
+      location: req.query.location,
+      rooms: req.query.rooms
+    })
+    console.log(houses)
+    res.render('houses/list', { user: req.user, houses })
+  } catch (err) {
+    next(err)
+  }
 })
+
 // GET /create
 router.get('/create', (req, res) => {
   if (req.isAuthenticated()) {
