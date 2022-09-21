@@ -17,7 +17,7 @@ let Houses = mongoose.model('houses', {
   },
   photos: [
     {
-      location: String
+      type: String
     }
   ],
   price: {
