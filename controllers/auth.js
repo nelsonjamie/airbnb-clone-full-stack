@@ -46,11 +46,6 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
-// {
-//   console.log(req.body)
-//   res.send('logged in')
-// })
-
 // POST / signup
 router.post('/signup', async (req, res, next) => {
   try {
