@@ -5,26 +5,26 @@ const router = express.Router()
 //Routes
 // GET /
 router.get('/', (req, res) => {
-  res.render('houses/list')
+  res.render('houses/list', (user = req.user))
   console.log('get houses complete')
 })
 // GET /create
 router.get('/create', (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('houses/create')
+    res.render('houses/create', (user = req.user))
   } else {
     res.redirect('../auth/login')
   }
 })
 // GET /:id
 router.get('/:id', (req, res) => {
-  res.render('houses/one')
+  res.render('houses/one', (user = req.user))
   console.log('View this House')
 })
 // GET /:id/edit
 router.get('/:id/edit', (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('houses/edit')
+    res.render('houses/edit', (user = req.user))
   } else {
     res.redirect('/auth/login')
   }
