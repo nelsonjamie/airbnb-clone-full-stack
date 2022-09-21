@@ -20,7 +20,8 @@ router.get('/create', (req, res) => {
 })
 // GET /:id
 router.get('/:id', async (req, res) => {
-  let house = await Houses.findById().populate('host')
+  let house = await Houses.findById(req.params.id).populate('host')
+  console.log(house)
   res.render('houses/one', { user: req.user, house })
   console.log('View this House')
 })
