@@ -1,80 +1,25 @@
 <nav class="mb-3">{{>navbar}}</nav>
-<!--BEGIN CONTENT-->
     <div class="container text-center">
       <div class="row">
         <div class="col">
           <img
-            src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
+            src="{{house.photos.[0]}}"
             class="img-fluid"
-            alt="villa dining room"
+            alt="photo 1"
           />
         </div>
         <div class="col">
           <div class="container">
             <div class="row row-cols-3 g-3">
+							{{#each house.photos as |photo|}}
               <div class="col">
                 <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
+                  src="{{photo}}"
                   class="img-fluid"
                   alt="img1"
                 />
               </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
-                  class="img-fluid"
-                  alt="img2"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png"
-                  class="img-fluid"
-                  alt="img3"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png"
-                  class="img-fluid"
-                  alt="img4"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png"
-                  class="img-fluid"
-                  alt="img5"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png"
-                  class="img-fluid"
-                  alt="img6"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png"
-                  class="img-fluid"
-                  alt="img7"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png"
-                  class="img-fluid"
-                  alt="img8"
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png"
-                  class="img-fluid"
-                  alt="img9"
-                />
-              </div>
+							{{/each}}
             </div>
           </div>
         </div>
@@ -85,14 +30,14 @@
       <div class="row row-cols-2">
         <div class="col">
           <form>
-            <p class="h1">Luxury Villa in Chaweng</p>
-            <p><i class="fa-solid fa-location-dot"></i> Koh Samui • 4 Rooms</p>
+            <p class="h1">{{house.title}}</p>
+            <p><i class="fa-solid fa-location-dot"></i> {{house.location}} • {{house.rooms}} Rooms</p>
 
             <div class="card mb-3" style="max-width: 150px;">
               <div class="row g-0">
                 <div class="col-md-2">
                   <img
-                    src="images/jnelsonavatar.png"
+                    src="{{house.host.avatar}}"
                     class="img-fluid rounded-start"
                     alt="..."
                   />
@@ -102,39 +47,12 @@
                     <p class="card-text">
                       <small class="text-muted">Hosted by</small>
                     </p>
-                    <p class="card-title">Jamie Nelson</p>
+                    <p class="card-title">{{house.host.name}}</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!--Attempt1-->
-            <div class="row row-cols-2">
-              <div class="col">
-                <img
-                  id="avatar-img"
-                  src="images/jnelsonavatar.png"
-                  alt="avatar image"
-                />
-              </div>
-              <div class="col">
-                <span>Hosted by</span>
-                <div>
-                  <span>Jamie Nelson</span>
-                </div>
-              </div>
-            </div>
-            <!--End of Attempt1-->
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <p>{{house.description}}</p>
             <p class="h2">0 Reviews</p>
             <div class="mb-3">
               <label for="leave-a-review" class="form-label"
@@ -155,11 +73,11 @@
               </a>
             </div>
 
-            <button type="button" class="btn btn-success">Submit</button>
+            <button class="btn btn-success">Submit</button>
           </form>
         </div>
         <div class="col">
-          <p class="h2">$350/night</p>
+          <p class="h2">$ {{house.price}}/night</p>
           <p>0 Reviews</p>
           <div class="mb-3">
             <label for="leave-a-review" class="form-label"></label>
@@ -176,4 +94,3 @@
         </div>
       </div>
     </div>
-    <!--END CONTENT-->
