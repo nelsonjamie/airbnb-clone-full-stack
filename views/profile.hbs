@@ -2,7 +2,7 @@
 <div class="container py-4">
       <div class="row row-cols-2">
         <div class="col">
-          <form>
+          <form action="/users/{{user._id}}?_method=PATCH" method="post">
             <p class="h2 border-bottom">Profile</p>
             <div class="mb-3 text-left">
               <label for="full-name" class="form-label">Name</label>
@@ -10,7 +10,7 @@
                 type="text"
                 class="form-control"
                 id="full-name"
-                placeholder="Jamie Nelson"
+                placeholder="{{user.name}}"
               />
             </div>
             <div class="mb-3 text-left">
@@ -20,7 +20,7 @@
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                placeholder="jamie@jetwithjamie.com"
+                placeholder="{{user.email}}"
               />
             </div>
             <div class="mb-3 text-left">
@@ -29,7 +29,7 @@
             <div class="mb-3 text-left">
               <img
                 id="avatar-img"
-                src="images/jnelsonavatar.png"
+                src="{{user.avatar}}"
                 alt="avatar image"
               />
             </div>
@@ -40,12 +40,12 @@
               placeholder="https://photolocation.com"
             />
 
-            <button type="button" class="btn btn-success">Save Changes</button>
+            <button class="btn btn-success">Save Changes</button>
           </form>
         </div>
         <div class="col">
           <p class="h2 border-bottom">My Listings</p>
-          <button type="button" class="btn btn-success">List a House</button>
+          <button class="btn btn-success">List a House</button>
         </div>
       </div>
     </div>
