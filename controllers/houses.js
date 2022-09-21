@@ -6,9 +6,10 @@ const Houses = require('../models/houses')
 
 //Routes
 // GET /
-router.get('/', (req, res) => {
-  res.render('houses/list', { user: req.user })
-  console.log('get houses complete')
+router.get('/', async (req, res) => {
+  let houses = await Houses.find()
+  console.log(houses)
+  res.render('houses/list', { houses })
 })
 // GET /create
 router.get('/create', (req, res) => {
