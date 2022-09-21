@@ -1,4 +1,80 @@
 <nav class="mb-3">{{> navbar}}</nav>
+<!--BEGIN SEARCH BAR-->
+<div class="bg-light">
+	<div class="container">
+<form  action="/houses" method="get">
+		<div class="row">
+			<div class="col">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupSelect01"
+						><i class="fa-solid fa-location-dot"></i
+					></label>
+					<select name="location" class="form-select" id="inputGroupSelect01">
+						<option selected>Any location</option>
+						<option>Koh Phangan</option>
+						<option>Koh Samui</option>
+						<option>Bali</option>
+					</select>
+				</div>
+			</div>
+			<div class="col">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupSelect01"
+						><i class="fa-sharp fa-solid fa-house-chimney"></i
+					></label>
+					<select name="rooms"class="form-select" id="inputGroupSelect01">
+						<option selected>Any rooms</option>
+						<option value="1">1 room</option>
+						<option value="2">2 rooms</option>
+						<option value="3">3 rooms</option>
+						<option value="4">4 rooms</option>
+						<option value="5">5 rooms</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-auto">
+				<div class="input-group">
+					<div class="input-group-text">
+						<i class="fa-sharp fa-solid fa-dollar-sign"></i>
+					</div>
+					<input
+						type="text"
+						class="form-control"
+						id="autoSizingInputGroup"
+						name="price"
+						placeholder="Max price"
+					/>
+				</div>
+			</div>
+			<div class="col">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupSelect01"
+						><i class="fa-sharp fa-solid fa-sort"></i
+					></label>
+					<select name="price" class="form-select" id="inputGroupSelect01">
+						<option selected>Price (low to high)</option>
+						<option value="1">Price (high to low)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col">
+				<input
+					class="form-control"
+					type="text"
+					placeholder="House name..."
+					aria-label="default input example"
+					name="title"
+				/>
+			</div>
+			<div class="col">
+				<button class="btn btn-success">Submit</button>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+<!--END SEARCH BAR-->
 <form>
       <div class="container py-4">
         <div class="row row-cols-4">
