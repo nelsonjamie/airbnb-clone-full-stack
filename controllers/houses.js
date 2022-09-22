@@ -3,7 +3,6 @@ const express = require('express')
 const router = express.Router()
 
 const Houses = require('../models/houses')
-const hbs = require('/helpers/hbs-helpers')
 
 //Routes
 // GET /
