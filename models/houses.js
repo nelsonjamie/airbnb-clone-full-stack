@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
+const Users = require('../models/users')
+
 let Houses = mongoose.model('houses', {
   description: {
     type: String,
