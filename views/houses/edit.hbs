@@ -8,18 +8,17 @@
 			<input
 				class="form-control"
 				name="title"
-				placeholder="Luxury Villa in Canggu"
+				value="{{house.title}}"
 			/>
 		</div>
 		<div class="mb-3">
 			<label for="description" class="form-label">Description</label>
-			<textarea class="form-control" name="description" rows="6">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris	nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea
-			>
+			<textarea class="form-control" name="description" rows="6" value="{{house.description}}">
+</textarea>
 		</div>
 		<div class="mb-3">
 			<label for="title" class="form-label">Number of Rooms</label>
-			<input class="form-control" name="number-of-rooms" placeholder="4" />
+			<input class="form-control" name="number-of-rooms" value="{{house.rooms}}" />
 		</div>
 		<div class="mb-3">
 			<label for="title" class="form-label">Location</label>
@@ -44,6 +43,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 					class="form-control"
 					id="autoSizingInputGroup"
 					name="price"
+					value="{{house.price}}"
 				/>
 			</div>
 		</div>
