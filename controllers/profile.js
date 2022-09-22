@@ -3,11 +3,14 @@ const express = require('express')
 const router = express.Router()
 
 const Users = require('../models/users')
+const Houses = require('../models/houses')
 
 // Create here a controller
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('profile', { user: req.user })
+    let myHouses = await Houses.find({ host: req.user._id })
+    console.log(myHouses)
+    res.render('profile', { user: req.user, myHouses })
   } else {
     res.redirect('/auth/login')
   }
