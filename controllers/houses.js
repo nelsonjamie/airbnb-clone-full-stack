@@ -8,10 +8,21 @@ const Houses = require('../models/houses')
 // GET /
 router.get('/', async (req, res, next) => {
   try {
-    let houses = await Houses.find({
-      location: req.query.location,
-      rooms: req.query.rooms
-    })
+    let searchObj = {}
+    if (req.query.location) {
+      searchObj.location = req.query.location
+    }
+    if (req.query.rooms) {
+      searchObj.rooms = req.query.rooms
+    }
+    if (req.query.price) {
+      searchObj.price = { $lte: req.query.price }
+    }
+    if (req.query.title) {
+      searchObj.title = { $regex: req.query.title, $options: 'i' }
+    }
+    console.log(searchObj)
+    let houses = await Houses.find(searchObj).sort(req.query.sort)
     console.log(houses)
     res.render('houses/list', { user: req.user, houses })
   } catch (err) {
