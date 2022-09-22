@@ -47,7 +47,36 @@
         </div>
         <div class="col">
           <p class="h2 border-bottom">My Listings</p>
-          <button class="btn btn-success">List a House</button>
+					<a href="/houses/create">
+					<button class="btn btn-success">List a House</button></a>
+					<div class="result-card" style="max-width: 540px;">
+						<div class="row g-0">
+
+						</div class="col-md-4">
+						{{#each myHouses as |house|}}
+						
+						<img
+							src="{{house.photos.[0]}}"
+							class="img-fluid rounded-start"
+							alt="house_01_01"
+						/>
+						<div class="card-body">
+							<h7 class="card-title"
+								><i class="fa-solid fa-location-dot"></i> {{house.location}} • {{house.rooms}}
+								Rooms</h7
+							>
+							<h5 class="card-title">{{house.title}}</h5>
+							<span class="text-success"
+								><i class="fa-solid fa-thumbs-up"></i></span
+							><span> 1 Reviews</span>
+							<span class="text-end"> ${{house.price}}/night</span>
+						</div>
+						<a href="/houses/{{house._id}}/edit">
+						<button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></a>
+						<a href="/houses/{{house._id}}">
+						<button type="button" class="btn btn-outline-success btn-sm">View</button></a>
+						{{/each}}
+					</div>
         </div>
       </div>
     </div>
