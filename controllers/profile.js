@@ -22,6 +22,11 @@ router.patch('/', async (req, res) => {
       new: true
     })
     console.log(updateUser)
+    req.login(updateUser, err => {
+      if (err) {
+        throw err
+      }
+    })
     res.render('profile', { user: req.user })
   } else {
     res.redirect('/auth/login')
