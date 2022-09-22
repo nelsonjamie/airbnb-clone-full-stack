@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 const Houses = require('../models/houses')
+const hbs = require('/helpers/hbs-helpers')
 
 //Routes
 // GET /
@@ -46,9 +47,11 @@ router.get('/:id', async (req, res) => {
   console.log('View this House')
 })
 // GET /:id/edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('houses/edit', { user: req.user })
+    let house = await Houses.findById(req.params.id).populate('host')
+    console.log(house)
+    res.render('houses/edit', { user: req.user, house })
   } else {
     res.redirect('/auth/login')
   }
