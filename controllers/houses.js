@@ -72,7 +72,7 @@ router.patch('/:id', async (req, res) => {
       new: true
     }).populate('host')
     console.log(house)
-    res.render('houses/edit', { user: req.user, house })
+    res.redirect('/')
   } else {
     res.redirect('/auth/login')
   }
