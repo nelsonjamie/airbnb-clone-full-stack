@@ -74,22 +74,25 @@
             </div>
 
             <button class="btn btn-success">Submit</button>
-          </form action='/booking' method='post'>
+          </form>
         </div>
         <div class="col">
           <p class="h2">$ {{house.price}}/night</p>
           <p>0 Reviews</p>
           <div class="mb-3">
             <label for="leave-a-review" class="form-label"></label>
+						<form action='/bookings' method='post'>
             <textarea
               class="form-control"
-              for="description"
               rows="4"
+							name="description"
               placeholder="Send the host a message..."
             ></textarea>
+						<input type="hidden" name="house" value="{{house._id}}">
             <button class="btn btn-success">
               Request a Booking
             </button>
+					</form>
           </div>
         </div>
       </div>
