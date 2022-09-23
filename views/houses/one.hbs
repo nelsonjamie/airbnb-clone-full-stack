@@ -76,6 +76,7 @@
             <button class="btn btn-success">Submit</button>
           </form>
         </div>
+				{{#if booking}}
         <div class="col">
           <p class="h2">$ {{house.price}}/night</p>
           <p>0 Reviews</p>
@@ -93,7 +94,9 @@
               Request a Booking
             </button>
 					</form>
+
           </div>
         </div>
+				{{/if}}
       </div>
     </div>
