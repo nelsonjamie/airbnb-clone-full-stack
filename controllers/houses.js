@@ -66,9 +66,13 @@ router.post('/', async (req, res) => {
   }
 })
 // PATCH /:id
-router.patch('/:id', (req, res) => {
+router.patch('/:id', async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('houses/:id')
+    let house = await Houses.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    }).populate('host')
+    console.log(house)
+    res.render('houses/edit', { user: req.user, house })
   } else {
     res.redirect('/auth/login')
   }
