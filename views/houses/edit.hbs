@@ -2,7 +2,7 @@
 <!--VERSION 2 COMPLETED FORM-->
 
 <div class="container">
-	<form action="/houses/{{house._id}}/edit/?_method=PATCH" method="POST">
+	<form action="/houses/{{house._id}}?_method=PATCH" method="POST">
 		<p class="h1">Edit House</p>
 		<div class="mb-3">
 			<label for="title" class="form-label">Short Title</label>
@@ -14,12 +14,12 @@
 		</div>
 		<div class="mb-3">
 			<label for="description" class="form-label">Description</label>
-			<textarea class="form-control" name="description" rows="6" value="{{house.description}}">
+			<textarea class="form-control" name="description" rows="6"> {{house.description}}
 </textarea>
 		</div>
 		<div class="mb-3">
 			<label for="title" class="form-label">Number of Rooms</label>
-			<input class="form-control" name="number-of-rooms" value="{{house.rooms}}" />
+			<input class="form-control" name="rooms" value="{{house.rooms}}" />
 		</div>
 		<div class="mb-3">
 			<label for="title" class="form-label">Location</label>
@@ -45,69 +45,24 @@
 					id="autoSizingInputGroup"
 					name="price"
 					value="{{house.price}}"
+					placeholder="https://"
 				/>
 			</div>
 		</div>
 
 		<div class="mb-3">
 			<label for="formFile" class="form-label">Add Photos (up to 9)</label>
+			{{#each house.photos as |photo|}}
 			<input
 				class="form-control"
 				for="img-link"
 				name="photos"
-				placeholder="https://..."
+				value="{{photo}}"
 			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
-			<input
-				class="form-control"
-				for="img-link"
-				name="photos"
-				placeholder="https://..."
-			/>
+			{{/each}}
 		</div>
 		<button class="btn btn-success">Submit</button>
-	</form>
-</div>
+	</div>
+</form>
 
 <!--END OF VERSION 2 COMPLETED FORM-->
